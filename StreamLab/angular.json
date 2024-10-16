@@ -27,9 +27,37 @@
               }
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "public/assets/css/all.min.css",
+              "public/assets/css/bootstrap.min.css",
+              "public/assets/css/fontawesome.min.css",
+              "public/assets/css/ionicons.min.css",
+              "public/assets/css/magnific-popup.min.css",
+              "public/assets/css/owl.carousel.min.css",
+              "public/assets/css/responsive.css",
+              "public/assets/css/slick.min.css",
+              "public/assets/css/style.css"
             ],
-            "scripts": []
+            "scripts": [
+              "public/assets/js/jquery-3.6.0.min.js",
+              "public/assets/js/asyncloader.min.js",
+              "public/assets/js/bootstrap.min.js",
+              "public/assets/js/owl.carousel.min.js",
+              "public/assets/js/jquery.waypoints.min.js",
+              "public/assets/js/jquery.counterup.min.js",
+              "public/assets/js/popper.min.js",
+              "public/assets/js/swiper-bundle.min.js",
+              "public/assets/js/isotope.pkgd.min.js",
+              "public/assets/js/jquery.magnific-popup.min.js",
+              "public/assets/js/slick.min.js",
+              "public/assets/js/streamlab-core.js",
+              "public/assets/js/script.js"
+            ],
+            "server": "src/main.server.ts",
+            "prerender": true,
+            "ssr": {
+              "entry": "server.ts"
+            }
           },
           "configurations": {
             "production": {
@@ -94,6 +122,6 @@
     }
   },
   "cli": {
-    "analytics": "33ce7d34-6542-48d6-b1a9-617617448c08"
+    "analytics": "cf6278fe-b354-42c4-a6ed-ad288fcbadab"
   }
 }
