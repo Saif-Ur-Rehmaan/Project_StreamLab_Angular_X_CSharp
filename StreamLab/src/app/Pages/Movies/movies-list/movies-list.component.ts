@@ -1,15 +1,14 @@
-import { Component } from '@angular/core';
+import { AfterViewInit, Component } from '@angular/core';
 import { ScriptService } from '../../../Services/script.service';
 import { RouterLink, RouterLinkActive } from '@angular/router';
-
 @Component({
-  selector: 'app-single-movie',
+  selector: 'app-movies-list',
   standalone: true,
   imports: [RouterLink,RouterLinkActive],
-  templateUrl: './single-movie.component.html',
-  styleUrl: './single-movie.component.css'
+  templateUrl: './movies-list.component.html',
+  styleUrl: './movies-list.component.css'
 })
-export class SingleMovieComponent {
+export class MoviesListComponent implements AfterViewInit {
   constructor(private scriptService: ScriptService) { }
   ngAfterViewInit() {
  

@@ -38,21 +38,7 @@
               "public/assets/css/slick.min.css",
               "public/assets/css/style.css"
             ],
-            "scripts": [
-              "public/assets/js/jquery-3.6.0.min.js",
-              "public/assets/js/asyncloader.min.js",
-              "public/assets/js/bootstrap.min.js",
-              "public/assets/js/owl.carousel.min.js",
-              "public/assets/js/jquery.waypoints.min.js",
-              "public/assets/js/jquery.counterup.min.js",
-              "public/assets/js/popper.min.js",
-              "public/assets/js/swiper-bundle.min.js",
-              "public/assets/js/isotope.pkgd.min.js",
-              "public/assets/js/jquery.magnific-popup.min.js",
-              "public/assets/js/slick.min.js",
-              "public/assets/js/streamlab-core.js",
-              "public/assets/js/script.js"
-            ],
+            "scripts": [],
             "server": "src/main.server.ts",
             "prerender": true,
             "ssr": {
