@@ -11,6 +11,9 @@ import { PricingComponent } from './Pages/pricing/pricing.component';
 import { ContactUsComponent } from './Pages/contact-us/contact-us.component'; 
 import { BlogsIndexComponent } from './Pages/Blogs/blogs-index/blogs-index.component';
 import { SingleBlogComponent } from './Pages/Blogs/single-blog/single-blog.component';
+import { LoginComponent } from './Pages/login/login.component';
+import { RegisterComponent } from './Pages/register/register.component'; 
+import { RecoverPasswordComponent } from './Pages/recover-password/recover-password.component';
 
 export const routes: Routes = [
     { path: '', component: IndexComponent ,pathMatch: 'full'},
@@ -24,8 +27,12 @@ export const routes: Routes = [
     { path: 'TvShows/:showId', component: TvShowEpisodesComponent},
     { path: 'TvShows/:showId/:episodeId', component: SingleTvShowComponent},
     
+    { path: 'login', component: LoginComponent},
+    { path: 'register', component: RegisterComponent},
+    { path: 'RecoverPassword', component: RecoverPasswordComponent}, 
+    
     { path: 'Pricing', component: PricingComponent},
-    { path: 'Contact', component: ContactUsComponent},
+    { path: 'Contact', component: ContactUsComponent}, 
 
     { path: 'Blogs', component: BlogsIndexComponent},
     { path: 'Blogs/:id', component: SingleBlogComponent},

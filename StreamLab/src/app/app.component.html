@@ -54,40 +54,19 @@
                   <ul class="gen-account-menu">
                     <!-- Pms Menu -->
                     <li>
-                      <a href="log-in.html"><i class="fas fa-sign-in-alt"></i>
+                      <a [routerLink]="['','login']"><i class="fas fa-sign-in-alt"></i>
                         login </a>
                     </li>
                     <li>
-                      <a href="register.html"><i class="fa fa-user"></i>
+                      <a [routerLink]="['','register']"><i class="fa fa-user"></i>
                         Register </a>
                     </li>
-                    <!-- Library Menu -->
-                    <li>
-                      <a href="library.html">
-                        <i class="fa fa-indent"></i>
-                        Library </a>
-                    </li>
-                    <li>
-                      <a href="library.html"><i class="fa fa-list"></i>
-                        Movie Playlist </a>
-                    </li>
-                    <li>
-                      <a href="library.html"><i class="fa fa-list"></i>
-                        Tv Show Playlist </a>
-                    </li>
-                    <li>
-                      <a href="library.html"><i class="fa fa-list"></i>
-                        Video Playlist </a>
-                    </li>
-                    <li>
-                      <a href="upload-video.html"> <i class="fa fa-upload"></i>
-                        Upload Video </a>
-                    </li>
+                  
                   </ul>
                 </div>
               </div>
               <div class="gen-btn-container">
-                <a href="register.html" class="gen-button">
+                <a [routerLink]="['','register']" class="gen-button">
                   <div class="gen-button-block">
                     <span class="gen-button-line-left"></span>
                     <span class="gen-button-text">Subscribe</span>
@@ -137,10 +116,8 @@
                   <li class="menu-item">
                     <a [routerLink]="['']" aria-current="page">Home</a>
                   </li>
-                  <li class="menu-item"><a href="movies-pagination.html">Movies</a></li>
-                  <li class="menu-item"><a [routerLink]="['','TvShows']">Tv Shows</a></li>
-                  <li class="menu-item"><a href="video-pagination.html">Videos</a></li>
-                  <li class="menu-item"><a [routerLink]="['']">Actors</a></li>
+                  <li class="menu-item"><a [routerLink]="['','Movies']">Movies</a></li> 
+                  <li class="menu-item"><a [routerLink]="['','TvShows']">Tv Shows</a></li>  
                   <li class="menu-item"><a [routerLink]="['']">Basketball</a></li>
                   <li class="menu-item"><a [routerLink]="['']">Celebrity</a></li>
                   <li class="menu-item"><a [routerLink]="['']">Cross</a></li>
