@@ -22,7 +22,7 @@ namespace Api
                 app.UseSwagger();
                 app.UseSwaggerUI();
             }
-
+            
             app.UseHttpsRedirection();
 
             app.UseAuthorization();

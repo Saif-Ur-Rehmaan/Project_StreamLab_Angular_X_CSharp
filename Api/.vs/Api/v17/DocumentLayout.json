@@ -3,32 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\SaIF\\Desktop\\PROJECTS-Uploded In Github\\Project_StreamLab_Angular_X_CSharp\\Api\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{CCAA98E9-A222-4644-A0DE-E39447A65830}|Api\\Api.csproj|c:\\users\\saif\\desktop\\projects-uploded in github\\project_streamlab_angular_x_csharp\\api\\api\\core\\models\\movie\\movie.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CCAA98E9-A222-4644-A0DE-E39447A65830}|Api\\Api.csproj|solutionrelative:api\\core\\models\\movie\\movie.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CCAA98E9-A222-4644-A0DE-E39447A65830}|Api\\Api.csproj|c:\\users\\saif\\desktop\\projects-uploded in github\\project_streamlab_angular_x_csharp\\api\\api\\core\\models\\movie\\moviecategory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CCAA98E9-A222-4644-A0DE-E39447A65830}|Api\\Api.csproj|solutionrelative:api\\core\\models\\movie\\moviecategory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CCAA98E9-A222-4644-A0DE-E39447A65830}|Api\\Api.csproj|c:\\users\\saif\\desktop\\projects-uploded in github\\project_streamlab_angular_x_csharp\\api\\api\\core\\models\\purchasedpackege.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CCAA98E9-A222-4644-A0DE-E39447A65830}|Api\\Api.csproj|solutionrelative:api\\core\\models\\purchasedpackege.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CCAA98E9-A222-4644-A0DE-E39447A65830}|Api\\Api.csproj|c:\\users\\saif\\desktop\\projects-uploded in github\\project_streamlab_angular_x_csharp\\api\\api\\core\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CCAA98E9-A222-4644-A0DE-E39447A65830}|Api\\Api.csproj|solutionrelative:api\\core\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CCAA98E9-A222-4644-A0DE-E39447A65830}|Api\\Api.csproj|c:\\users\\saif\\desktop\\projects-uploded in github\\project_streamlab_angular_x_csharp\\api\\api\\core\\streamlabcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CCAA98E9-A222-4644-A0DE-E39447A65830}|Api\\Api.csproj|solutionrelative:api\\core\\streamlabcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{CCAA98E9-A222-4644-A0DE-E39447A65830}|Api\\Api.csproj|c:\\users\\saif\\desktop\\projects-uploded in github\\project_streamlab_angular_x_csharp\\api\\api\\repository\\reposotories\\pricingrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CCAA98E9-A222-4644-A0DE-E39447A65830}|Api\\Api.csproj|solutionrelative:api\\repository\\reposotories\\pricingrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{CCAA98E9-A222-4644-A0DE-E39447A65830}|Api\\Api.csproj|c:\\users\\saif\\desktop\\projects-uploded in github\\project_streamlab_angular_x_csharp\\api\\api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{CCAA98E9-A222-4644-A0DE-E39447A65830}|Api\\Api.csproj|solutionrelative:api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CCAA98E9-A222-4644-A0DE-E39447A65830}|Api\\Api.csproj|c:\\users\\saif\\desktop\\projects-uploded in github\\project_streamlab_angular_x_csharp\\api\\api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{CCAA98E9-A222-4644-A0DE-E39447A65830}|Api\\Api.csproj|solutionrelative:api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     }
   ],
   "DocumentGroupContainers": [
@@ -43,92 +23,27 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Movie.cs",
-              "DocumentMoniker": "C:\\Users\\SaIF\\Desktop\\PROJECTS-Uploded In Github\\Project_StreamLab_Angular_X_CSharp\\Api\\Api\\CORE\\Models\\Movie\\Movie.cs",
-              "RelativeDocumentMoniker": "Api\\CORE\\Models\\Movie\\Movie.cs",
-              "ToolTip": "C:\\Users\\SaIF\\Desktop\\PROJECTS-Uploded In Github\\Project_StreamLab_Angular_X_CSharp\\Api\\Api\\CORE\\Models\\Movie\\Movie.cs",
-              "RelativeToolTip": "Api\\CORE\\Models\\Movie\\Movie.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABYAAAAnAAAA",
+              "Title": "PricingRepository.cs",
+              "DocumentMoniker": "C:\\Users\\SaIF\\Desktop\\PROJECTS-Uploded In Github\\Project_StreamLab_Angular_X_CSharp\\Api\\Api\\REPOSITORY\\Reposotories\\PricingRepository.cs",
+              "RelativeDocumentMoniker": "Api\\REPOSITORY\\Reposotories\\PricingRepository.cs",
+              "ToolTip": "C:\\Users\\SaIF\\Desktop\\PROJECTS-Uploded In Github\\Project_StreamLab_Angular_X_CSharp\\Api\\Api\\REPOSITORY\\Reposotories\\PricingRepository.cs",
+              "RelativeToolTip": "Api\\REPOSITORY\\Reposotories\\PricingRepository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAA1AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-18T15:11:10.496Z",
+              "WhenOpened": "2024-10-19T13:46:01.879Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "MovieCategory.cs",
-              "DocumentMoniker": "C:\\Users\\SaIF\\Desktop\\PROJECTS-Uploded In Github\\Project_StreamLab_Angular_X_CSharp\\Api\\Api\\CORE\\Models\\Movie\\MovieCategory.cs",
-              "RelativeDocumentMoniker": "Api\\CORE\\Models\\Movie\\MovieCategory.cs",
-              "ToolTip": "C:\\Users\\SaIF\\Desktop\\PROJECTS-Uploded In Github\\Project_StreamLab_Angular_X_CSharp\\Api\\Api\\CORE\\Models\\Movie\\MovieCategory.cs",
-              "RelativeToolTip": "Api\\CORE\\Models\\Movie\\MovieCategory.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-18T15:08:47.037Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "User.cs",
-              "DocumentMoniker": "C:\\Users\\SaIF\\Desktop\\PROJECTS-Uploded In Github\\Project_StreamLab_Angular_X_CSharp\\Api\\Api\\CORE\\Models\\User.cs",
-              "RelativeDocumentMoniker": "Api\\CORE\\Models\\User.cs",
-              "ToolTip": "C:\\Users\\SaIF\\Desktop\\PROJECTS-Uploded In Github\\Project_StreamLab_Angular_X_CSharp\\Api\\Api\\CORE\\Models\\User.cs",
-              "RelativeToolTip": "Api\\CORE\\Models\\User.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-18T14:52:09.032Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "PurchasedPackege.cs",
-              "DocumentMoniker": "C:\\Users\\SaIF\\Desktop\\PROJECTS-Uploded In Github\\Project_StreamLab_Angular_X_CSharp\\Api\\Api\\CORE\\Models\\PurchasedPackege.cs",
-              "RelativeDocumentMoniker": "Api\\CORE\\Models\\PurchasedPackege.cs",
-              "ToolTip": "C:\\Users\\SaIF\\Desktop\\PROJECTS-Uploded In Github\\Project_StreamLab_Angular_X_CSharp\\Api\\Api\\CORE\\Models\\PurchasedPackege.cs",
-              "RelativeToolTip": "Api\\CORE\\Models\\PurchasedPackege.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-18T14:51:16.555Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "StreamLabContext.cs",
-              "DocumentMoniker": "C:\\Users\\SaIF\\Desktop\\PROJECTS-Uploded In Github\\Project_StreamLab_Angular_X_CSharp\\Api\\Api\\CORE\\StreamLabContext.cs",
-              "RelativeDocumentMoniker": "Api\\CORE\\StreamLabContext.cs",
-              "ToolTip": "C:\\Users\\SaIF\\Desktop\\PROJECTS-Uploded In Github\\Project_StreamLab_Angular_X_CSharp\\Api\\Api\\CORE\\StreamLabContext.cs",
-              "RelativeToolTip": "Api\\CORE\\StreamLabContext.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-18T14:22:09.598Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\SaIF\\Desktop\\PROJECTS-Uploded In Github\\Project_StreamLab_Angular_X_CSharp\\Api\\Api\\Program.cs",
               "RelativeDocumentMoniker": "Api\\Program.cs",
               "ToolTip": "C:\\Users\\SaIF\\Desktop\\PROJECTS-Uploded In Github\\Project_StreamLab_Angular_X_CSharp\\Api\\Api\\Program.cs",
               "RelativeToolTip": "Api\\Program.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAAzAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-18T14:19:57.341Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "C:\\Users\\SaIF\\Desktop\\PROJECTS-Uploded In Github\\Project_StreamLab_Angular_X_CSharp\\Api\\Api\\appsettings.json",
-              "RelativeDocumentMoniker": "Api\\appsettings.json",
-              "ToolTip": "C:\\Users\\SaIF\\Desktop\\PROJECTS-Uploded In Github\\Project_StreamLab_Angular_X_CSharp\\Api\\Api\\appsettings.json",
-              "RelativeToolTip": "Api\\appsettings.json",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAaAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-10-18T14:19:58.51Z",
+              "WhenOpened": "2024-10-19T13:42:29.897Z",
               "EditorCaption": ""
             }
           ]

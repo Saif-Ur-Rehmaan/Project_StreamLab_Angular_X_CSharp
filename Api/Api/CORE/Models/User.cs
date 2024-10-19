@@ -10,7 +10,7 @@ namespace Api.CORE.Models
         public int Id { get; set; }
 
         [Required]
-        public required Role Role { get; set; } // Assuming a relationship
+        public required Role Role { get; set; }  
 
         [Required, MaxLength(50)]
         public required string UserName { get; set; }
