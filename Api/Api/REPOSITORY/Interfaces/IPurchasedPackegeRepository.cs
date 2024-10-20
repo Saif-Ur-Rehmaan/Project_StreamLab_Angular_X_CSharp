@@ -6,7 +6,7 @@ namespace Api.REPOSITORY.Interfaces
     public interface IPurchasedPackegeRepository
     { 
 
-        public IEnumerable<PurchasedPackege> GetPurchasedPackege();
+        public IEnumerable<PurchasedPackege> GetPurchasedPackeges();
 
         public PurchasedPackege FindPurchasedPackege( int id);
 

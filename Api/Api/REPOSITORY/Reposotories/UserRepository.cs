@@ -21,7 +21,7 @@ namespace Api.REPOSITORY.Reposotories
             return User;
         }
 
-        public User FindUser(int id)=>_entities.Users.Find(id);
+        public User FindUser(int id)=>_entities.Users.Find(id) ?? throw new Exception("User Not Found");;
 
         public IEnumerable<User> GetUsers()=>_entities.Users.ToList();
 
@@ -36,8 +36,7 @@ namespace Api.REPOSITORY.Reposotories
                 user.Password= User.Password;
 
            
-
-            _entities.Users.Update(user);
+             
             _entities.SaveChanges();
             return user;
            

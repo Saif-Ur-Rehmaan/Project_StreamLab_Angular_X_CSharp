@@ -23,21 +23,20 @@ namespace Api.REPOSITORY.Reposotories
 
         public PurchasedPackege FindPurchasedPackege(int id)
         {
-            return _entities.PurchasedPackeges.Find(id);
+            return _entities.PurchasedPackeges.Find(id) ?? throw new Exception("Purchased Packege Not Found"); ;
         }
 
-        public IEnumerable<PurchasedPackege> GetPurchasedPackege()
+        public IEnumerable<PurchasedPackege> GetPurchasedPackeges()
         {
             return _entities.PurchasedPackeges.ToList();
         }
 
         public PurchasedPackege UpdatePurchasedPackege(int id, PurchasedPackege PurchasedPackege)
         {
-            PurchasedPackege pp = _entities.PurchasedPackeges.Find(id);
+            PurchasedPackege pp = FindPurchasedPackege(id);
             pp.Pricing = PurchasedPackege.Pricing;
             pp.User = PurchasedPackege.User;
-            pp.Status = PurchasedPackege.Status;
-            _entities.PurchasedPackeges.Update(pp);
+            pp.Status = PurchasedPackege.Status; 
             _entities.SaveChanges();
             return PurchasedPackege;
         }

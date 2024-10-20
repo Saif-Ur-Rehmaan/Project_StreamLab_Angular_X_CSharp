@@ -22,16 +22,15 @@ namespace Api.REPOSITORY.Reposotories
             return role;
         }
 
-        public Role FindRole(int id) => _entities.Roles.Find(id);
+        public Role FindRole(int id) => _entities.Roles.Find(id) ?? throw new Exception("Movie Not Found");;
 
         public IEnumerable<Role> GetRoles() => _entities.Roles.ToList();
 
         public Role UpdateRole(int id,Role Role)
         {
-            Role ExistingRole=_entities.Roles.Find(id);
+            Role ExistingRole=FindRole(id);
             ExistingRole.Name = Role.Name;
-
-            _entities.Roles.Update(ExistingRole);
+             
             _entities.SaveChanges();
             return Role;
         }

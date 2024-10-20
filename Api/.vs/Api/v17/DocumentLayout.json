@@ -1,54 +1,12 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\SaIF\\Desktop\\PROJECTS-Uploded In Github\\Project_StreamLab_Angular_X_CSharp\\Api\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{CCAA98E9-A222-4644-A0DE-E39447A65830}|Api\\Api.csproj|c:\\users\\saif\\desktop\\projects-uploded in github\\project_streamlab_angular_x_csharp\\api\\api\\repository\\reposotories\\pricingrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CCAA98E9-A222-4644-A0DE-E39447A65830}|Api\\Api.csproj|solutionrelative:api\\repository\\reposotories\\pricingrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CCAA98E9-A222-4644-A0DE-E39447A65830}|Api\\Api.csproj|c:\\users\\saif\\desktop\\projects-uploded in github\\project_streamlab_angular_x_csharp\\api\\api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CCAA98E9-A222-4644-A0DE-E39447A65830}|Api\\Api.csproj|solutionrelative:api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    }
-  ],
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": [
-        {
-          "DockedWidth": 200,
-          "SelectedChildIndex": 0,
-          "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "PricingRepository.cs",
-              "DocumentMoniker": "C:\\Users\\SaIF\\Desktop\\PROJECTS-Uploded In Github\\Project_StreamLab_Angular_X_CSharp\\Api\\Api\\REPOSITORY\\Reposotories\\PricingRepository.cs",
-              "RelativeDocumentMoniker": "Api\\REPOSITORY\\Reposotories\\PricingRepository.cs",
-              "ToolTip": "C:\\Users\\SaIF\\Desktop\\PROJECTS-Uploded In Github\\Project_StreamLab_Angular_X_CSharp\\Api\\Api\\REPOSITORY\\Reposotories\\PricingRepository.cs",
-              "RelativeToolTip": "Api\\REPOSITORY\\Reposotories\\PricingRepository.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAA1AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-19T13:46:01.879Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\SaIF\\Desktop\\PROJECTS-Uploded In Github\\Project_StreamLab_Angular_X_CSharp\\Api\\Api\\Program.cs",
-              "RelativeDocumentMoniker": "Api\\Program.cs",
-              "ToolTip": "C:\\Users\\SaIF\\Desktop\\PROJECTS-Uploded In Github\\Project_StreamLab_Angular_X_CSharp\\Api\\Api\\Program.cs",
-              "RelativeToolTip": "Api\\Program.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAAzAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-19T13:42:29.897Z",
-              "EditorCaption": ""
-            }
-          ]
-        }
-      ]
+      "DocumentGroups": []
     }
   ]
 }
