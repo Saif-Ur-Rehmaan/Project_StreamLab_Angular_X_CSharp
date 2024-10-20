@@ -14,9 +14,9 @@ namespace Api.REPOSITORY.Reposotories
             // Create Movie Category
             public MovieCategory CreateMovieCategory(MovieCategory movieCategory)
             {
-                _entities.MovieCategories.Add(movieCategory);
+               var entity= _entities.MovieCategories.Add(movieCategory);
                 _entities.SaveChanges(); // Save changes to the database
-                return movieCategory;
+                return entity.Entity;
             }
 
             // Delete Movie Category
@@ -29,25 +29,29 @@ namespace Api.REPOSITORY.Reposotories
             }
 
             // Find Movie Category by Id
-            public MovieCategory FindMovieCategory(int id)
+            public MovieCategory? FindMovieCategory(int id)
             {
-                return _entities.MovieCategories.Find(id) ?? throw new Exception("Movie Category Not Found");  
+                 return _entities.MovieCategories.Find(id); 
             }
 
             // Get all Movie Categories
             public IEnumerable<MovieCategory> GetMovieCategories()
             {
-                return _entities.MovieCategories.ToList();  
+                return [.. _entities.MovieCategories];  
             }
 
             // Update Movie Category
             public MovieCategory UpdateMovieCategory(int id, MovieCategory movieCategory)
             {
                 var categoryToUpdate = FindMovieCategory(id);
-                categoryToUpdate.Name = movieCategory.Name; 
-                _entities.SaveChanges(); 
+                if (categoryToUpdate != null)
+                {
+                    categoryToUpdate.Name = movieCategory.Name; 
+                    _entities.SaveChanges(); 
+
+                }
                 
-                return categoryToUpdate;
+                return movieCategory;
             }
          
 

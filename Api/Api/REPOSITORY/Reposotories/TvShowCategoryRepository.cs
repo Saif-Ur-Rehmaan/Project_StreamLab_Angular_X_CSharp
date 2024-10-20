@@ -11,9 +11,9 @@ namespace Api.REPOSITORY.Reposotories
 
         public TvShowCategory CreateTvShowCategory(TvShowCategory tvShowCategory)
         {
-            _entities.TvShowCategories.Add(tvShowCategory);
+            var entity=_entities.TvShowCategories.Add(tvShowCategory);
             _entities.SaveChanges();
-            return tvShowCategory;
+            return entity.Entity;
         }
 
         public TvShowCategory DeleteTvShowCategory(TvShowCategory tvShowCategory)
@@ -23,24 +23,26 @@ namespace Api.REPOSITORY.Reposotories
             return tvShowCategory;
         }
 
-        public TvShowCategory FindTvShowCategory(int id)
+        public TvShowCategory? FindTvShowCategory(int id)
         {
             var tvshow = _entities.TvShowCategories.Find(id);
 
-            return tvshow ?? throw new Exception("Not Found");
+            return tvshow  ;
         }
 
         public IEnumerable<TvShowCategory> GetTvShowCategories()
         {
-            return  _entities.TvShowCategories.ToList();
+            return [.. _entities.TvShowCategories];
         }
 
         public TvShowCategory UpdateTvShowCategory(int id, TvShowCategory tvShowCategory)
         {
             var tvc = FindTvShowCategory(id);
-            tvc.Name=tvShowCategory.Name;
-            _entities.SaveChanges();
-
+            if (tvc != null)
+            {
+                tvc.Name=tvShowCategory.Name;
+                _entities.SaveChanges();
+            }
             return tvShowCategory;
         }
     }

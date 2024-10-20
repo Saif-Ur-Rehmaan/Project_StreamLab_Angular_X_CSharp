@@ -7,7 +7,7 @@ namespace Api.CORE
 {
     public class StreamLabContext(DbContextOptions<StreamLabContext> options) : DbContext(options)
     {
-
+        
         public DbSet<Role> Roles { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<Pricing> Pricings { get; set; }
@@ -24,8 +24,6 @@ namespace Api.CORE
         public DbSet<TvShowSeason> TvShowSeasons { get; set; }
         public DbSet<TvShowEpisode> TvShowEpisodes { get; set; }
 
-
-
-
+        
     }
 }

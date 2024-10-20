@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Diagnostics.CodeAnalysis;
 using System.Text.Json.Nodes;
 
@@ -9,6 +10,8 @@ namespace Api.CORE.Models.Movie
         [Key]
         public int Id { get; set; }
         [Required]
+        public required MovieCategory MovieCategory { get; set; }
+        [Required]
         public required string Title { get; set; }
         [Required, DataType(DataType.Text)]
         public required string Thumbnail { get; set; }
@@ -16,17 +19,17 @@ namespace Api.CORE.Models.Movie
         public required string MoviePath { get; set; }
 
         [Required, MaxLength(100)]
-        public string Language = string.Empty;
+        public required string Language { get; set; }
 
+        [AllowNull,DefaultValue(false)]
+        public bool? TvPg { get; set; }
         [AllowNull]
-        public bool TvPg = false;
-        [AllowNull]
-        public string Description = string.Empty;
+        public string? Description { get; set; }
         [Required, MaxLength(100)]
         public required string Cast { get; set; }
    
-        [AllowNull]
-        public JsonObject Tags { get; set; }
+        [AllowNull,DataType(DataType.Text)]
+        public string Tags { get; set; }
 
         [AllowNull]
         public  int Views { get; set; }

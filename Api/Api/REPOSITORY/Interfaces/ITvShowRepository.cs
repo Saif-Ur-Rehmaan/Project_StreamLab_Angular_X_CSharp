@@ -6,7 +6,7 @@ namespace Api.REPOSITORY.Interfaces
     {
         public IEnumerable<TvShow> GetTvShows();
 
-        public TvShow FindTvShow(int id);
+        public TvShow? FindTvShow(int id);
 
         public TvShow CreateTvShow(TvShow TvShow);
 

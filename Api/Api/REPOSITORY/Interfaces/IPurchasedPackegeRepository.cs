@@ -8,7 +8,7 @@ namespace Api.REPOSITORY.Interfaces
 
         public IEnumerable<PurchasedPackege> GetPurchasedPackeges();
 
-        public PurchasedPackege FindPurchasedPackege( int id);
+        public PurchasedPackege? FindPurchasedPackege( int id);
 
         public PurchasedPackege CreatePurchasedPackege( PurchasedPackege PurchasedPackege);
 

@@ -7,7 +7,7 @@ namespace Api.REPOSITORY.Interfaces
     {
         public IEnumerable<Movie> GetMovies();
 
-        public Movie FindMovie(int id);
+        public Movie? FindMovie(int id);
 
         public Movie CreateMovie(Movie movie);
 

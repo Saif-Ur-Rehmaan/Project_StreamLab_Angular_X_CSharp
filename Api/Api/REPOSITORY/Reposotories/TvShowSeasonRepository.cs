@@ -10,9 +10,9 @@ namespace Api.REPOSITORY.Reposotories
 
         public TvShowSeason CreateTvShowSeason(TvShowSeason TvShowSeason)
         {
-            _entities.TvShowSeasons.Add(TvShowSeason);
+            var entity=_entities.TvShowSeasons.Add(TvShowSeason);
             _entities.SaveChanges();
-           return TvShowSeason;
+            return entity.Entity;
         }
 
         public TvShowSeason DeleteTvShowSeason(TvShowSeason TvShowSeason)
@@ -22,28 +22,31 @@ namespace Api.REPOSITORY.Reposotories
             return TvShowSeason;
         }
 
-        public TvShowSeason FindTvShowSeason(int id)
+        public TvShowSeason? FindTvShowSeason(int id)
         {
-            var tss = _entities.TvShowSeasons.Find(id)??throw new Exception("Not Found");
+            var tss = _entities.TvShowSeasons.Find(id) ;
             return tss;
         }
 
         public IEnumerable<TvShowSeason> GetTvShowSeasons()
         {
-            return _entities.TvShowSeasons.ToList();
+            return [.. _entities.TvShowSeasons];
         }
         public TvShowSeason UpdateTvShowSeason(int id, TvShowSeason updatedTvShowSeason)
         {
             var existingTvShowSeason = FindTvShowSeason(id);
-
-            existingTvShowSeason.Name = updatedTvShowSeason.Name;
-            existingTvShowSeason.SeasonNumber = updatedTvShowSeason.SeasonNumber;
-            existingTvShowSeason.SeasonDescription = updatedTvShowSeason.SeasonDescription;
+            if (existingTvShowSeason != null)
+            {
+                existingTvShowSeason.Name = updatedTvShowSeason.Name;
+                existingTvShowSeason.SeasonNumber = updatedTvShowSeason.SeasonNumber;
+                existingTvShowSeason.SeasonDescription = updatedTvShowSeason.SeasonDescription;
              
-            _entities.SaveChanges();
+                _entities.SaveChanges();
+
+            }
 
             // Return the updated entity
-            return existingTvShowSeason;
+            return updatedTvShowSeason;
         }
     }
 }

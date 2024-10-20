@@ -10,9 +10,9 @@ namespace Api.REPOSITORY.Reposotories
 
         public Role CreateRole(Role Role)
         {
-            _entities.Roles.Add(Role);
+            var entity=_entities.Roles.Add(Role);
             _entities.SaveChanges();
-            return Role;
+            return entity.Entity;
         }
 
         public Role DeleteRole(Role role)
@@ -22,17 +22,23 @@ namespace Api.REPOSITORY.Reposotories
             return role;
         }
 
-        public Role FindRole(int id) => _entities.Roles.Find(id) ?? throw new Exception("Movie Not Found");;
+        public Role? FindRole(int id) => _entities.Roles.Find(id);
+        public Role? FindRole(string name) => _entities.Roles.FirstOrDefault(x=>x.Name==name);
+        public Role? FindRole(int id ,string name) => _entities.Roles.FirstOrDefault(x=>x.Name==name && x.Id==id);
 
-        public IEnumerable<Role> GetRoles() => _entities.Roles.ToList();
+        public IEnumerable<Role> GetRoles() => [.. _entities.Roles];
 
-        public Role UpdateRole(int id,Role Role)
+        public Role? UpdateRole(int id,Role Role)
         {
-            Role ExistingRole=FindRole(id);
-            ExistingRole.Name = Role.Name;
-             
-            _entities.SaveChanges();
-            return Role;
+            Role? ExistingRole=FindRole(id);
+            if (ExistingRole!=null)
+            {
+                ExistingRole.Name = Role.Name;
+                _entities.SaveChanges();
+            }
+            return ExistingRole;
         }
+   
+        
     }
 }

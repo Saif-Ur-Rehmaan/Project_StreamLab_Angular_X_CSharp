@@ -6,7 +6,7 @@ namespace Api.REPOSITORY.Interfaces
     {
         public IEnumerable<TvShowSeason> GetTvShowSeasons();
 
-        public TvShowSeason FindTvShowSeason(int id);
+        public TvShowSeason? FindTvShowSeason(int id);
 
         public TvShowSeason CreateTvShowSeason(TvShowSeason TvShowSeason);
 

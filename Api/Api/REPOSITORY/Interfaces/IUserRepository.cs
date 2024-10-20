@@ -7,13 +7,14 @@ namespace Api.REPOSITORY.Interfaces
     {
         public IEnumerable<User> GetUsers();
 
-        public User FindUser( int id);
+        public User? FindUser( int id);
+        public User? FindUser( string email);
 
         public User DeleteUser( User User);
 
         public User CreateUser(User User);
 
-        public User UpdateUser(int id,User User);
+        public User? UpdateUser(int id,User User);
 
 
 

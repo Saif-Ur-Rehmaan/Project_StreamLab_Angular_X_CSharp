@@ -7,7 +7,7 @@ namespace Api.REPOSITORY.Interfaces
     {
         public IEnumerable<MovieCategory> GetMovieCategories();
 
-        public MovieCategory FindMovieCategory(int id);
+        public MovieCategory? FindMovieCategory(int id);
 
         public MovieCategory CreateMovieCategory(MovieCategory movieCategory);
 

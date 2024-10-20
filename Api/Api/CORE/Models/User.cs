@@ -25,7 +25,7 @@ namespace Api.CORE.Models
 
         public string? LastName { get; set; }
 
-
+        
     }
 
 }

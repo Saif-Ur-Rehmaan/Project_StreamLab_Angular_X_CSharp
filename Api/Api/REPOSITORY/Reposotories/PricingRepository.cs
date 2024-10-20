@@ -9,9 +9,9 @@ namespace Api.REPOSITORY.Reposotories
         protected StreamLabContext _entities = entities;
         public Pricing CreatePricing(Pricing pricing)
         {
-            _entities.Pricings.Add(pricing);
+            var entity=_entities.Pricings.Add(pricing);
             _entities.SaveChanges();
-            return pricing;
+            return entity.Entity;
         }
 
         public Pricing DeletePricing(Pricing pricing)
@@ -21,26 +21,30 @@ namespace Api.REPOSITORY.Reposotories
             return pricing;
         }
 
-        public Pricing FindPricing(int id)
+        public Pricing? FindPricing(int id)
         {
-            return _entities.Pricings.Find(id) ?? throw new Exception("Pricing Not Found"); ;
+            return _entities.Pricings.Find(id)  ;
         }
 
         public IEnumerable<Pricing> GetPricings()
         {
-            return _entities.Pricings.ToList();
+            return [.. _entities.Pricings];
         }
 
         public Pricing UpdatePricing(int id, Pricing pricing)
         {
             var epricing = FindPricing(id);
-            epricing.Price = pricing.Price;
-            epricing.Title= pricing.Title;
-            epricing.Duration= pricing.Duration;
-            epricing.DiscountPercent= pricing.DiscountPercent;
-            epricing.Features = pricing.Features;
+            if (epricing!=null)
+            {
+                epricing.Price = pricing.Price;
+                epricing.Title= pricing.Title;
+                epricing.Duration= pricing.Duration;
+                epricing.DiscountPercent= pricing.DiscountPercent;
+                epricing.Features = pricing.Features;
+                _entities.SaveChanges();
+
+            }
              
-            _entities.SaveChanges();
             return pricing;
         }
     }

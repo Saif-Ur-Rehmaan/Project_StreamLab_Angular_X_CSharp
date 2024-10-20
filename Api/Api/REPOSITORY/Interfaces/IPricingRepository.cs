@@ -6,7 +6,7 @@ namespace Api.REPOSITORY.Interfaces
     {
         public IEnumerable<Pricing> GetPricings();
 
-        public Pricing FindPricing(int id);
+        public Pricing? FindPricing(int id);
 
         public Pricing CreatePricing(Pricing pricing);
 

@@ -8,7 +8,7 @@ namespace Api.CORE.Models.TvShow
         public int Id { get; set; }
 
         [Required, MaxLength(100)]
-        public required string Name = string.Empty;
+        public required string Name {  get; set; }
 
     }
 }

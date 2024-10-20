@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Diagnostics.CodeAnalysis;
 
 namespace Api.CORE.Models
@@ -13,8 +14,8 @@ namespace Api.CORE.Models
         [Required]
         public required Pricing Pricing { get; set; }
 
-        [AllowNull]
-        public PurchasedPackegeStatusType Status = PurchasedPackegeStatusType.Allowed;
+        [AllowNull,DefaultValue(PurchasedPackegeStatusType.Allowed)]
+        public PurchasedPackegeStatusType Status { get; set; }
 
     }
     public enum PurchasedPackegeStatusType 

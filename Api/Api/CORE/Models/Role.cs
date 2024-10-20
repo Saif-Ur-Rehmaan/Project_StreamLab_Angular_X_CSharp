@@ -7,6 +7,6 @@ namespace Api.CORE.Models
         [Key]
         public int Id { get; set; }
         [Required]
-        public string Name =string.Empty;
+        public required string Name { get; set; }
     }
 }

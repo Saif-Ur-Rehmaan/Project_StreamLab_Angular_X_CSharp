@@ -1,6 +1,7 @@
 ﻿using Api.CORE;
 using Api.CORE.Models;
 using Api.REPOSITORY.Interfaces;
+using Microsoft.EntityFrameworkCore;
 
 namespace Api.REPOSITORY.Reposotories
 {
@@ -9,9 +10,9 @@ namespace Api.REPOSITORY.Reposotories
         protected StreamLabContext _entities = entities;
         public PurchasedPackege CreatePurchasedPackege(PurchasedPackege PurchasedPackege)
         {
-            _entities.PurchasedPackeges.Add(PurchasedPackege);
+           var entity= _entities.PurchasedPackeges.Add(PurchasedPackege);
             _entities.SaveChanges();
-            return PurchasedPackege;
+            return entity.Entity;
         }
 
         public PurchasedPackege DeletePurchasedPackege(PurchasedPackege PurchasedPackege)
@@ -21,23 +22,27 @@ namespace Api.REPOSITORY.Reposotories
             return PurchasedPackege;
         }
 
-        public PurchasedPackege FindPurchasedPackege(int id)
+        public PurchasedPackege? FindPurchasedPackege(int id)
         {
-            return _entities.PurchasedPackeges.Find(id) ?? throw new Exception("Purchased Packege Not Found"); ;
+            return _entities.PurchasedPackeges.Include(x => x.Pricing).Include(x => x.User).FirstOrDefault(x => x.Id == id);
         }
 
         public IEnumerable<PurchasedPackege> GetPurchasedPackeges()
         {
-            return _entities.PurchasedPackeges.ToList();
+            return [.. _entities.PurchasedPackeges.Include(x => x.Pricing).Include(x => x.User)];
         }
 
         public PurchasedPackege UpdatePurchasedPackege(int id, PurchasedPackege PurchasedPackege)
         {
-            PurchasedPackege pp = FindPurchasedPackege(id);
-            pp.Pricing = PurchasedPackege.Pricing;
-            pp.User = PurchasedPackege.User;
-            pp.Status = PurchasedPackege.Status; 
-            _entities.SaveChanges();
+            PurchasedPackege? pp = FindPurchasedPackege(id);
+            if (pp != null)
+            {
+                pp.Pricing = PurchasedPackege.Pricing;
+                pp.User = PurchasedPackege.User;
+                pp.Status = PurchasedPackege.Status; 
+                _entities.SaveChanges();
+                
+            }
             return PurchasedPackege;
         }
     }

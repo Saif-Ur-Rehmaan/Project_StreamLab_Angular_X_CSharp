@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Diagnostics.CodeAnalysis;
 using System.Text.Json.Nodes;
 
@@ -13,11 +14,11 @@ namespace Api.CORE.Models
         [Required]
         public required string Price {  get; set; }
 
-        [AllowNull]
-        public int DiscountPercent = 0;
+        [AllowNull,DefaultValue(0)]
+        public int DiscountPercent { get; set; }
         [Required,DataType(DataType.DateTime)]
         public DateTime Duration {  get; set; }
-        [Required]
-        public required JsonObject Features {  get; set; }
+        [Required,DataType(DataType.Text)]
+        public required string Features {  get; set; }
     }
 }

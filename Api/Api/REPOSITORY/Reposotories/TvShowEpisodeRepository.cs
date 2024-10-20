@@ -1,6 +1,7 @@
 ﻿using Api.CORE;
 using Api.CORE.Models.TvShow;
 using Api.REPOSITORY.Interfaces;
+using Microsoft.EntityFrameworkCore;
 
 namespace Api.REPOSITORY.Reposotories
 {
@@ -10,9 +11,9 @@ namespace Api.REPOSITORY.Reposotories
          
         public TvShowEpisode CreateTvShowEpisode(TvShowEpisode tvShowEpisode)
         {
-            _entities.TvShowEpisodes.Add(tvShowEpisode);  
-            _entities.SaveChanges();  
-            return tvShowEpisode;  
+            var entity=_entities.TvShowEpisodes.Add(tvShowEpisode);
+            _entities.SaveChanges();
+            return entity.Entity;
         }
          
         public TvShowEpisode DeleteTvShowEpisode(TvShowEpisode tvShowEpisode)
@@ -23,15 +24,15 @@ namespace Api.REPOSITORY.Reposotories
         }
 
         // Find a TvShowEpisode by id
-        public TvShowEpisode FindTvShowEpisode(int id)
+        public TvShowEpisode? FindTvShowEpisode(int id)
         {
-            return _entities.TvShowEpisodes.Find(id) ?? throw new Exception("TvShowEpisode Not Found");
+            return _entities.TvShowEpisodes.Include(x => x.TvShow).Include(x => x.TvShowSeason).FirstOrDefault(x=>x.Id==id) ;
         }
 
         // Get all TvShowEpisodes
         public IEnumerable<TvShowEpisode> GetTvShowEpisodes()
         {
-            return _entities.TvShowEpisodes.ToList(); // Retrieve all episodes
+            return [.. _entities.TvShowEpisodes.Include(x => x.TvShow).Include(x => x.TvShowSeason)]; // Retrieve all episodes
         }
 
         // Update an existing TvShowEpisode
@@ -39,19 +40,20 @@ namespace Api.REPOSITORY.Reposotories
         {
             // Find the existing episode
             var existingTvShowEpisode = FindTvShowEpisode(id);
+            if (existingTvShowEpisode!=null)
+            {
+                // Update the properties of the existing episode
+                existingTvShowEpisode.TvShow = updatedTvShowEpisode.TvShow; // Assuming navigation property is updated
+                existingTvShowEpisode.TvShowSeason = updatedTvShowEpisode.TvShowSeason; // Assuming navigation property is updated
+                existingTvShowEpisode.Thumbnail = updatedTvShowEpisode.Thumbnail;
+                existingTvShowEpisode.Views = updatedTvShowEpisode.Views;
+                existingTvShowEpisode.RunTime = updatedTvShowEpisode.RunTime;
+                // Save changes to the database
+                _entities.SaveChanges();
 
-            // Update the properties of the existing episode
-            existingTvShowEpisode.TvShow = updatedTvShowEpisode.TvShow; // Assuming navigation property is updated
-            existingTvShowEpisode.TvShowSeason = updatedTvShowEpisode.TvShowSeason; // Assuming navigation property is updated
-            existingTvShowEpisode.Thumbnail = updatedTvShowEpisode.Thumbnail;
-            existingTvShowEpisode.Views = updatedTvShowEpisode.Views;
-            existingTvShowEpisode.RunTime = updatedTvShowEpisode.RunTime;
-
-            // Save changes to the database
-            _entities.SaveChanges();
-
+            }
             // Return the updated episode
-            return existingTvShowEpisode;
+            return updatedTvShowEpisode;
         }
     }
 

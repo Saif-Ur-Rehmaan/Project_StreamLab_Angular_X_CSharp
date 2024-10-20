@@ -7,7 +7,7 @@ namespace Api.REPOSITORY.Interfaces
     {
         public IEnumerable<TvShowCategory> GetTvShowCategories();
 
-        public TvShowCategory FindTvShowCategory(int id);
+        public TvShowCategory? FindTvShowCategory(int id);
 
         public TvShowCategory CreateTvShowCategory(TvShowCategory tvShowCategory);
 
