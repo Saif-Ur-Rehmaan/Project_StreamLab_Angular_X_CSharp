@@ -27,23 +27,25 @@ namespace Api.REPOSITORY.Reposotories
             return _entities.PurchasedPackeges.Include(x => x.Pricing).Include(x => x.User).FirstOrDefault(x => x.Id == id);
         }
 
+        public PurchasedPackege? FindPurchasedPackege(string useremail, string PricingTitle)
+        {
+            return _entities.PurchasedPackeges
+                .Include(x => x.Pricing).Include(x => x.User)
+                .FirstOrDefault(x => x.User.Email == useremail && x.Pricing.Title==PricingTitle);
+            
+        }
+
         public IEnumerable<PurchasedPackege> GetPurchasedPackeges()
         {
             return [.. _entities.PurchasedPackeges.Include(x => x.Pricing).Include(x => x.User)];
         }
 
-        public PurchasedPackege UpdatePurchasedPackege(int id, PurchasedPackege PurchasedPackege)
+        public PurchasedPackege UpdatePurchasedPackege(PurchasedPackege PurchasedPackege)
         {
-            PurchasedPackege? pp = FindPurchasedPackege(id);
-            if (pp != null)
-            {
-                pp.Pricing = PurchasedPackege.Pricing;
-                pp.User = PurchasedPackege.User;
-                pp.Status = PurchasedPackege.Status; 
-                _entities.SaveChanges();
-                
-            }
-            return PurchasedPackege;
+            var pp = _entities.PurchasedPackeges.Update(PurchasedPackege);
+            _entities.SaveChanges();
+             
+            return pp.Entity;
         }
     }
 }

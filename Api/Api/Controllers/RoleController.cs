@@ -30,7 +30,7 @@ namespace Api.Controllers
             Role? role = _roleRepo.FindRole(id);
             if (role==null)
             {
-                return NotFound();
+                return NotFound($"Role of Id {id} Doesn't Exist");
             }
             return Ok(new ApiResponce { Status = "success", Message = "Role Retreaved Successfully", Data = role});
 
@@ -50,11 +50,15 @@ namespace Api.Controllers
             {
                 return Conflict("Duplicate Role Name");
             }
+             
+            Role res= _roleRepo.CreateRole(new Role() { Name = role.Name });
 
-            Role newRole= new() {Name=role.Name};
-            Role res= _roleRepo.CreateRole(newRole);
-
-            return Ok(new ApiResponce { Status = "success", Message = "Role Created Successfully", Data = res });
+            return CreatedAtAction(nameof(Get), new { id = res.Id }, new ApiResponce
+            {
+                Status = "success",
+                Message = "Role created successfully",
+                Data = res
+            });
 
         }
 
@@ -64,19 +68,18 @@ namespace Api.Controllers
         {
             if (!ModelState.IsValid) { return BadRequest(); }
 
-            Role? roleExist = _roleRepo.FindRole(role.Name);
-            if (roleExist != null)
-            {
-                return Conflict("Duplicate Role Name");
-            }
-            Role Role = new() {Name=role.Name };
-            Role? newRole = _roleRepo.UpdateRole(id,Role);
-            if (newRole==null)
-            { 
-                return NotFound();
-            }
+            //making  sure that role exist
+            Role? r = _roleRepo.FindRole(id);
+            if (r==null){ return NotFound($"Role of Id {id} Doesn't Exist"); }
+            
+            //making sure that role name is unique
+            bool isRoleNameAlreadyExist = _roleRepo.FindRoleExcept(role.Name,id)!=null;
+            if (isRoleNameAlreadyExist){return Conflict("Duplicate Role Name");}
 
-            return Ok(new ApiResponce { Status = "success", Message = "Role Updated Successfully", Data = role});
+            //updating role
+            r.Name=role.Name ;
+            Role newRole = _roleRepo.UpdateRole(r);
+            return Ok(new ApiResponce { Status = "success", Message = "Role Updated Successfully", Data = newRole});
 
         }
 
@@ -84,16 +87,12 @@ namespace Api.Controllers
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
+            //Checking Role Exist
             var role = _roleRepo.FindRole(id);
-
-            if (role == null)
-            {
-                return NotFound();
-            }
-
+            if (role == null){return NotFound($"Role of Id {id} Doesn't Exist");}
+            //Deleting Role
             var res=_roleRepo.DeleteRole(role);
 
-            // Consider returning a more specific response based on your needs:
             return Ok(new ApiResponce { Status = "success", Message = "Role Deleted Successfully", Data = res});
 
         }

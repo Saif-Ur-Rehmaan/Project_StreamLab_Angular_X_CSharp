@@ -9,10 +9,11 @@ namespace Api.REPOSITORY.Interfaces
         public IEnumerable<PurchasedPackege> GetPurchasedPackeges();
 
         public PurchasedPackege? FindPurchasedPackege( int id);
+        public PurchasedPackege? FindPurchasedPackege(string useremail, string PricingTitle);
 
         public PurchasedPackege CreatePurchasedPackege( PurchasedPackege PurchasedPackege);
 
-        public PurchasedPackege UpdatePurchasedPackege(int id,  PurchasedPackege PurchasedPackege);
+        public PurchasedPackege UpdatePurchasedPackege(  PurchasedPackege PurchasedPackege);
 
         public PurchasedPackege DeletePurchasedPackege( PurchasedPackege PurchasedPackege);
     }

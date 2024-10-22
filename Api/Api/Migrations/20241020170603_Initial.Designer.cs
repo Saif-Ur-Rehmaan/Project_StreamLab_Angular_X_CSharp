@@ -25,7 +25,7 @@ namespace Api.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("Api.CORE.Models.Movie.Movie", b =>
+            modelBuilder.Entity("Api.CORE.Models.MovieModels.Movie", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -84,7 +84,7 @@ namespace Api.Migrations
                     b.ToTable("Movies");
                 });
 
-            modelBuilder.Entity("Api.CORE.Models.Movie.MovieCategory", b =>
+            modelBuilder.Entity("Api.CORE.Models.MovieModels.MovieCategory", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -176,7 +176,7 @@ namespace Api.Migrations
                     b.ToTable("Roles");
                 });
 
-            modelBuilder.Entity("Api.CORE.Models.TvShow.TvShow", b =>
+            modelBuilder.Entity("Api.CORE.Models.TvShowModels.TvShow", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -206,7 +206,7 @@ namespace Api.Migrations
                     b.ToTable("TvShows");
                 });
 
-            modelBuilder.Entity("Api.CORE.Models.TvShow.TvShowCategory", b =>
+            modelBuilder.Entity("Api.CORE.Models.TvShowModels.TvShowCategory", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -224,7 +224,7 @@ namespace Api.Migrations
                     b.ToTable("TvShowCategories");
                 });
 
-            modelBuilder.Entity("Api.CORE.Models.TvShow.TvShowEpisode", b =>
+            modelBuilder.Entity("Api.CORE.Models.TvShowModels.TvShowEpisode", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -257,7 +257,7 @@ namespace Api.Migrations
                     b.ToTable("TvShowEpisodes");
                 });
 
-            modelBuilder.Entity("Api.CORE.Models.TvShow.TvShowSeason", b =>
+            modelBuilder.Entity("Api.CORE.Models.TvShowModels.TvShowSeason", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -319,9 +319,9 @@ namespace Api.Migrations
                     b.ToTable("Users");
                 });
 
-            modelBuilder.Entity("Api.CORE.Models.Movie.Movie", b =>
+            modelBuilder.Entity("Api.CORE.Models.MovieModels.Movie", b =>
                 {
-                    b.HasOne("Api.CORE.Models.Movie.MovieCategory", "MovieCategory")
+                    b.HasOne("Api.CORE.Models.MovieModels.MovieCategory", "MovieCategory")
                         .WithMany()
                         .HasForeignKey("MovieCategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -349,9 +349,9 @@ namespace Api.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("Api.CORE.Models.TvShow.TvShow", b =>
+            modelBuilder.Entity("Api.CORE.Models.TvShowModels.TvShow", b =>
                 {
-                    b.HasOne("Api.CORE.Models.TvShow.TvShowCategory", "Category")
+                    b.HasOne("Api.CORE.Models.TvShowModels.TvShowCategory", "Category")
                         .WithMany()
                         .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -360,15 +360,15 @@ namespace Api.Migrations
                     b.Navigation("Category");
                 });
 
-            modelBuilder.Entity("Api.CORE.Models.TvShow.TvShowEpisode", b =>
+            modelBuilder.Entity("Api.CORE.Models.TvShowModels.TvShowEpisode", b =>
                 {
-                    b.HasOne("Api.CORE.Models.TvShow.TvShow", "TvShow")
+                    b.HasOne("Api.CORE.Models.TvShowModels.TvShow", "TvShow")
                         .WithMany()
                         .HasForeignKey("TvShowId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Api.CORE.Models.TvShow.TvShowSeason", "TvShowSeason")
+                    b.HasOne("Api.CORE.Models.TvShowModels.TvShowSeason", "TvShowSeason")
                         .WithMany()
                         .HasForeignKey("TvShowSeasonId")
                         .OnDelete(DeleteBehavior.Cascade)

@@ -1,6 +1,6 @@
 ﻿using Api.CORE.Models;
-using Api.CORE.Models.Movie;
-using Api.CORE.Models.TvShow;
+using Api.CORE.Models.MovieModels;
+using Api.CORE.Models.TvShowModels;
 using Microsoft.EntityFrameworkCore;
 
 namespace Api.CORE

@@ -9,11 +9,11 @@ namespace Api.REPOSITORY.Interfaces
 
         public Role? FindRole(int id);
         public Role? FindRole(string name);
-        public Role? FindRole(int id,string name);
+        public Role? FindRoleExcept(string name,int exceptRoleid);
 
         public Role CreateRole(Role Role);
 
-        public Role? UpdateRole(int id,Role Role);
+        public Role UpdateRole(Role Role);
 
         public Role DeleteRole(Role Role);
 

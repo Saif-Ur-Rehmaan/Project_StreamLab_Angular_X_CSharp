@@ -24,19 +24,20 @@ namespace Api.REPOSITORY.Reposotories
 
         public Role? FindRole(int id) => _entities.Roles.Find(id);
         public Role? FindRole(string name) => _entities.Roles.FirstOrDefault(x=>x.Name==name);
-        public Role? FindRole(int id ,string name) => _entities.Roles.FirstOrDefault(x=>x.Name==name && x.Id==id);
+        public Role? FindRoleExcept(string name, int exceptRoleid ) {
+            
+                return _entities.Roles.FirstOrDefault(x => x.Name == name && x.Id!=exceptRoleid);
+          
+
+        }
 
         public IEnumerable<Role> GetRoles() => [.. _entities.Roles];
 
-        public Role? UpdateRole(int id,Role Role)
+        public Role UpdateRole(Role Role)
         {
-            Role? ExistingRole=FindRole(id);
-            if (ExistingRole!=null)
-            {
-                ExistingRole.Name = Role.Name;
-                _entities.SaveChanges();
-            }
-            return ExistingRole;
+            var role=_entities.Roles.Update(Role);
+            _entities.SaveChanges();
+            return role.Entity;
         }
    
         

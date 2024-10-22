@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Diagnostics.CodeAnalysis;
+using Api.CORE.Constants;
 
 namespace Api.CORE.Models
 {
@@ -18,10 +19,5 @@ namespace Api.CORE.Models
         public PurchasedPackegeStatusType Status { get; set; }
 
     }
-    public enum PurchasedPackegeStatusType 
-    { 
-        Allowed=1,
-        NotAllowed=2,
-        
-    };
+   
 }

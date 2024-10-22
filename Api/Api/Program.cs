@@ -1,7 +1,11 @@
 
 using Api.CORE;
 using Api.REPOSITORY.Interfaces;
+using Api.REPOSITORY.Interfaces.MovieInterfaces;
+using Api.REPOSITORY.Interfaces.TvShowInterfaces;
 using Api.REPOSITORY.Reposotories;
+using Api.REPOSITORY.Reposotories.MovieRepositories;
+using Api.REPOSITORY.Reposotories.TvShowRepositories;
 using Microsoft.EntityFrameworkCore;
 
 namespace Api

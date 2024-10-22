@@ -31,7 +31,7 @@ namespace Api.Controllers
             User? user = _userRepo.FindUser(id);
             if (user==null)
             {
-                return NotFound();   
+                return NotFound($"User of Id {id} Doesn't Exist");   
             }
 
             return Ok(new ApiResponce { Status = "success", Message = "User Retreaved Successfully", Data = user});
@@ -55,7 +55,7 @@ namespace Api.Controllers
             Role? role = _roleRepo.FindRole(user.Role.Name)  ;
             if (role ==null)
             {
-                return BadRequest();
+                return BadRequest($"Role with Name {user.Role.Name} Doesn't Exist");
             }
 
             User newUser = new()
@@ -69,8 +69,8 @@ namespace Api.Controllers
             };
 
             User u=_userRepo.CreateUser(newUser);
-            return Ok(new ApiResponce { Status = "success", Message = "Users Created Successfully", Data = u });
             // Return the created user
+            return CreatedAtAction(nameof(Get), new { id=newUser.Id},new ApiResponce { Status = "success", Message = "User Created Successfully", Data = u });
         }
 
         // PUT api/<UserController>/5
@@ -78,38 +78,36 @@ namespace Api.Controllers
         public IActionResult Put(int id, [FromBody] UserViewModel user)
         {
 
-            if (!ModelState.IsValid)
-            {
-                return BadRequest();
-            }
-            User? userExist = _userRepo.FindUser(user.Email);
-            if (userExist != null)
-            {
-                return Conflict("Duplicate Email Address");
-            }
-            var role=_roleRepo.FindRole(user.Role.Name);
-            if (role==null)
-            {
-                return BadRequest();
-            }
-            User u = new() {
-                Role = role,
-                UserName = user.UserName,
-                Email = user.Email,
-                Password = BCrypt.Net.BCrypt.EnhancedHashPassword(user.Password, 13), // Enhanced hash for verification
-                FirstName = user.FirstName,
-                LastName = user.LastName,
-            };
-            User? updatedUser = _userRepo.UpdateUser(id, u);
+            if (!ModelState.IsValid){return BadRequest();}
+            //Finding user 
+            User? u = _userRepo.FindUser(id);
+            //Checking if User Exist
+            if (u==null){return NotFound($"User of Id {id} Doesn't Exist");}
+            
+            //Making sure that Email is Unique
+            User? u2= _userRepo.FindUser(user.Email,u.Id);
+            if (u2 != null){return Conflict($"Duplicate Email Address; someone with This Email '{user.Email}' is already registered");}
+            
+            //checking role exist
+            Role? role=_roleRepo.FindRole(user.Role.Name);
 
-            if (updatedUser == null)
-            {
-                return NotFound();
-            }
+            if (role==null){return BadRequest($"invalid Role Name; Given role with  Name:{user.Role.Name} Doesn't Exist");}
+
+            //updating data
+            u.Role = role;
+            u.UserName = user.UserName;
+            u.Email = user.Email;
+            u.Password = BCrypt.Net.BCrypt.EnhancedHashPassword(user.Password, 13); // Enhanced hash for verification
+            u.FirstName = user.FirstName;
+            u.LastName = user.LastName;
+            
+            User updatedUser = _userRepo.UpdateUser(u);
+
+             
             return Ok(new ApiResponce { Status = "success", Message = "Users Updated Successfully", Data = updatedUser});
 
         }
-
+        
         // DELETE api/<UserController>/5
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
@@ -117,7 +115,7 @@ namespace Api.Controllers
             var user = _userRepo.FindUser(id);
             if (user == null)
             {
-                return NotFound();
+                return NotFound($"User of Id {id} Doesn't Exist");
             }
 
             _userRepo.DeleteUser(user); // Assuming you have a DeleteUser method

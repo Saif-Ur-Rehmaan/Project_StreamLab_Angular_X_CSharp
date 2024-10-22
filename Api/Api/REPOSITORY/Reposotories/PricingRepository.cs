@@ -1,4 +1,4 @@
-﻿using Api.CORE;
+﻿    using Api.CORE;
 using Api.CORE.Models;
 using Api.REPOSITORY.Interfaces;
 
@@ -26,26 +26,21 @@ namespace Api.REPOSITORY.Reposotories
             return _entities.Pricings.Find(id)  ;
         }
 
+        public Pricing? FindPricing(string Title)
+        {
+            return _entities.Pricings.FirstOrDefault(x=>x.Title==Title);
+        }
+
         public IEnumerable<Pricing> GetPricings()
         {
             return [.. _entities.Pricings];
         }
 
-        public Pricing UpdatePricing(int id, Pricing pricing)
+        public Pricing UpdatePricing(Pricing pricing)
         {
-            var epricing = FindPricing(id);
-            if (epricing!=null)
-            {
-                epricing.Price = pricing.Price;
-                epricing.Title= pricing.Title;
-                epricing.Duration= pricing.Duration;
-                epricing.DiscountPercent= pricing.DiscountPercent;
-                epricing.Features = pricing.Features;
-                _entities.SaveChanges();
-
-            }
-             
-            return pricing;
+            var epricing = _entities.Pricings.Update(pricing);
+            _entities.SaveChanges();
+            return epricing.Entity;
         }
     }
 }
