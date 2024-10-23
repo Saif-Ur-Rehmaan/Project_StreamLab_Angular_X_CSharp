@@ -33,37 +33,26 @@ namespace Api.REPOSITORY.Reposotories.MovieRepositories
             return _entities.Movies.Include(x => x.MovieCategory).FirstOrDefault(x => x.Title == MovieTitle);
         }
 
-        public Movie? FindMovieCategoryExcept(string MovieTitle, int ExceptCategoryId)
+        public Movie? FindMovieExcept(string MovieTitle, int ExceptCategoryId)
         {
             return _entities.Movies.Include(x => x.MovieCategory).FirstOrDefault(x => x.Title == MovieTitle&& x.Id!=ExceptCategoryId);
         }
 
-       
+
+
         public IEnumerable<Movie> GetMovies()
         {
             var movies = _entities.Movies.Include(x => x.MovieCategory).ToList();
             return movies;
         }
 
-        public Movie UpdateMovie(int id, Movie movie)
+        public Movie UpdateMovie( Movie movie)
         {
-            var emovie = FindMovie(id);
-            if (emovie != null)
-            {
-                emovie.Title = movie.Title;
-                emovie.Thumbnail = movie.Thumbnail;
-                emovie.MoviePath = movie.MoviePath;
-                emovie.Language = movie.Language;
-                emovie.TvPg = movie.TvPg;
-                emovie.Description = movie.Description;
-                emovie.Cast = movie.Cast;
-                emovie.Tags = movie.Tags;
-                emovie.Views = movie.Views;
-                emovie.RunTime = movie.RunTime;
-                emovie.ReleaseDate = movie.ReleaseDate;
+            var emovie = _entities.Movies.Update(movie);
+           
                 _entities.SaveChanges();
-            }
-            return movie;
+            
+            return emovie.Entity;
         }
     }
 }

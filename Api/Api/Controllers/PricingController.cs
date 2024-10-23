@@ -1,6 +1,6 @@
 ﻿using System.Data;
 using Api.CORE.Models;
-using Api.CORE.ResponceModels;
+using Api.CORE.ResponseModels;
 using Api.CORE.ViewModels;
 using Api.REPOSITORY.Interfaces;
 using Microsoft.AspNetCore.Mvc;
@@ -19,7 +19,7 @@ namespace Api.Controllers
         public IActionResult Get()
         {
             IEnumerable<Pricing> pricings= _pricingRepo.GetPricings();
-            return Ok(new ApiResponce() { Status="success",Message="Pricing Retreved Successfully" ,Data=pricings});
+            return Ok(new ApiResponse() { Status="success",Message="Pricing Retreved Successfully" ,Data=pricings});
         }
 
         // GET api/<PricingController>/5
@@ -28,7 +28,7 @@ namespace Api.Controllers
         {
             Pricing? pricing = _pricingRepo.FindPricing(id);
             if (pricing== null){return NotFound($"Pricing of Id {id} Doesn't Exist");}
-            return Ok(new ApiResponce { Status = "success", Message = "Pricing Retreaved Successfully", Data = pricing});
+            return Ok(new ApiResponse { Status = "success", Message = "Pricing Retreaved Successfully", Data = pricing});
 
         }
 
@@ -54,7 +54,7 @@ namespace Api.Controllers
                 DiscountPercent = pricing.DiscountPercent,
                 Duration = pricing.Duration
             });
-            return CreatedAtAction(nameof(Get), new { id = newP.Id }, new ApiResponce
+            return CreatedAtAction(nameof(Get), new { id = newP.Id }, new ApiResponse
             {
                 Status = "success",
                 Message = "Pricing Created Successfully",
@@ -82,7 +82,7 @@ namespace Api.Controllers
             existingP.Duration = pricing.Duration;
             
             Pricing newP= _pricingRepo.UpdatePricing(existingP);
-            return Ok(new ApiResponce { Status = "success", Message = "Pricing Updated Successfully", Data = newP });
+            return Ok(new ApiResponse { Status = "success", Message = "Pricing Updated Successfully", Data = newP });
 
         }
 
@@ -99,7 +99,7 @@ namespace Api.Controllers
             var res = _pricingRepo.DeletePricing(pricingExist);
 
             // Consider returning a more specific response based on your needs:
-            return Ok(new ApiResponce { Status = "success", Message = "Pricing Deleted Successfully", Data = res});
+            return Ok(new ApiResponse { Status = "success", Message = "Pricing Deleted Successfully", Data = res});
         }
 
        

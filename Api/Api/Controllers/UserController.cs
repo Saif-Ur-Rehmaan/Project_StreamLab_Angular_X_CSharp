@@ -1,5 +1,5 @@
 ﻿using Api.CORE.Models;
-using Api.CORE.ResponceModels;
+using Api.CORE.ResponseModels;
 using Api.CORE.ViewModels;
 using Api.REPOSITORY.Interfaces;
 using Microsoft.AspNetCore.Mvc;
@@ -19,7 +19,7 @@ namespace Api.Controllers
         public IActionResult Get()
         {
             var users = _userRepo.GetUsers();
-            return Ok(new ApiResponce{ Status="success",Message="Users Retreaved Successfully",Data=users});
+            return Ok(new ApiResponse{ Status="success",Message="Users Retreaved Successfully",Data=users});
         }
 
         // GET api/<UserController>/5
@@ -34,7 +34,7 @@ namespace Api.Controllers
                 return NotFound($"User of Id {id} Doesn't Exist");   
             }
 
-            return Ok(new ApiResponce { Status = "success", Message = "User Retreaved Successfully", Data = user});
+            return Ok(new ApiResponse { Status = "success", Message = "User Retreaved Successfully", Data = user});
 
         }
 
@@ -70,7 +70,7 @@ namespace Api.Controllers
 
             User u=_userRepo.CreateUser(newUser);
             // Return the created user
-            return CreatedAtAction(nameof(Get), new { id=newUser.Id},new ApiResponce { Status = "success", Message = "User Created Successfully", Data = u });
+            return CreatedAtAction(nameof(Get), new { id=newUser.Id},new ApiResponse { Status = "success", Message = "User Created Successfully", Data = u });
         }
 
         // PUT api/<UserController>/5
@@ -104,7 +104,7 @@ namespace Api.Controllers
             User updatedUser = _userRepo.UpdateUser(u);
 
              
-            return Ok(new ApiResponce { Status = "success", Message = "Users Updated Successfully", Data = updatedUser});
+            return Ok(new ApiResponse { Status = "success", Message = "Users Updated Successfully", Data = updatedUser});
 
         }
         
@@ -119,7 +119,7 @@ namespace Api.Controllers
             }
 
             _userRepo.DeleteUser(user); // Assuming you have a DeleteUser method
-            return Ok(new ApiResponce { Status = "success", Message = "Users Deleted Successfully", Data = user });
+            return Ok(new ApiResponse { Status = "success", Message = "Users Deleted Successfully", Data = user });
 
         }
     }

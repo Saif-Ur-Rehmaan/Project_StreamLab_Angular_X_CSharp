@@ -1,5 +1,5 @@
 ﻿using Api.CORE.Models.MovieModels;
-using Api.CORE.ResponceModels;
+using Api.CORE.ResponseModels;
 using Api.CORE.ViewModels.MovieViewModels;
 using Api.REPOSITORY.Interfaces.MovieInterfaces;
 using Microsoft.AspNetCore.Mvc;
@@ -18,7 +18,7 @@ namespace Api.Controllers.MovieControllers
         public IActionResult Get()
         {
             var movieCats = _mcRepo.GetMovieCategories();
-            return Ok(new ApiResponce() { Status = "success", Message = "Movie Categories Retreved Successfully", Data = movieCats});
+            return Ok(new ApiResponse() { Status = "success", Message = "Movie Categories Retreved Successfully", Data = movieCats});
         }
 
         // GET api/<MovieCategoryController>/5
@@ -27,7 +27,7 @@ namespace Api.Controllers.MovieControllers
         {
             MovieCategory? mc=_mcRepo.FindMovieCategory(id);
             if (mc==null){return NotFound($"Movie Category OF Id {id} Doesn't Exist");}
-            return Ok(new ApiResponce() { Status="success",Message="Movie Category Retrived Successfully",Data=mc});
+            return Ok(new ApiResponse() { Status="success",Message="Movie Category Retrived Successfully",Data=mc});
         }
 
         // POST api/<MovieCategoryController>
@@ -44,7 +44,7 @@ namespace Api.Controllers.MovieControllers
             MovieCategory newMC = _mcRepo.CreateMovieCategory(new MovieCategory() { 
                 Name = mcvm.Name 
             });
-            return CreatedAtAction(nameof(Get), new { id = newMC.Id }, new ApiResponce
+            return CreatedAtAction(nameof(Get), new { id = newMC.Id }, new ApiResponse
             {
                 Status = "success",
                 Message = "Movie Category created successfully",
@@ -72,7 +72,7 @@ namespace Api.Controllers.MovieControllers
             MovieCategory newMC = _mcRepo.UpdateMovieCategory(existingMC);
 
 
-            return Ok(new ApiResponce() { Status = "success", Message = "Movie Category Updated Successfully", Data = newMC});
+            return Ok(new ApiResponse() { Status = "success", Message = "Movie Category Updated Successfully", Data = newMC});
 
         }
 
@@ -85,7 +85,7 @@ namespace Api.Controllers.MovieControllers
             if (existingMC == null) { return NotFound($"Movie Category With Id '{id}' doesn't Exist ;"); }
             //deleting MovieCategory
             MovieCategory deletedCategory = _mcRepo.DeleteMovieCategory(existingMC);
-            return Ok(new ApiResponce
+            return Ok(new ApiResponse
             {
                 Status = "success",
                 Message = $"Movie Category with ID '{id}' deleted successfully",

@@ -1,5 +1,5 @@
 ﻿using Api.CORE.Models;
-using Api.CORE.ResponceModels;
+using Api.CORE.ResponseModels;
 using Api.CORE.ViewModels;
 using Api.REPOSITORY.Interfaces;
 using Microsoft.AspNetCore.Mvc;
@@ -22,7 +22,7 @@ namespace Api.Controllers
         public IActionResult Get()
         {
             IEnumerable<PurchasedPackege> data=_ppRepo.GetPurchasedPackeges();
-            return Ok(new ApiResponce() { Status = "success", Message = "Purchased Packeges Retreved Successfully", Data = data});
+            return Ok(new ApiResponse() { Status = "success", Message = "Purchased Packeges Retreved Successfully", Data = data});
         }
 
         // GET api/<PurchasedPackeges>/5
@@ -34,7 +34,7 @@ namespace Api.Controllers
             {
                 return NotFound($"Pricing of Id {id} Doesn't Exist");
             }
-            return Ok(new ApiResponce() { Status = "success", Message = "Purchased Packege Retreved Successfully", Data = pp });
+            return Ok(new ApiResponse() { Status = "success", Message = "Purchased Packege Retreved Successfully", Data = pp });
 
         }
 
@@ -71,7 +71,7 @@ namespace Api.Controllers
                 Pricing = pricing,
                 Status = ppvm.Status
             });
-            return CreatedAtAction(nameof(Get), new { id = newPP.Id }, new ApiResponce
+            return CreatedAtAction(nameof(Get), new { id = newPP.Id }, new ApiResponse
             {
                 Status = "success",
                 Message = "Purchased Packeges created successfully",
@@ -121,7 +121,7 @@ namespace Api.Controllers
 
             PurchasedPackege updatedPP= _ppRepo.UpdatePurchasedPackege(existingPP);
 
-            return Ok(new ApiResponce
+            return Ok(new ApiResponse
             {
                 Status = "success",
                 Message = "Purchased Package updated successfully",
@@ -146,7 +146,7 @@ namespace Api.Controllers
             PurchasedPackege deletedPP= _ppRepo.DeletePurchasedPackege(existingPP);
 
             // Return success response
-            return Ok(new ApiResponce
+            return Ok(new ApiResponse
             {
                 Status = "success",
                 Message = $"Purchased Package with ID '{id}' deleted successfully",

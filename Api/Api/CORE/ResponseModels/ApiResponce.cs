@@ -1,6 +1,6 @@
-﻿namespace Api.CORE.ResponceModels
+﻿namespace Api.CORE.ResponseModels
 {
-    public class ApiResponce
+    public class ApiResponse
     {
         public required string Status { get; set; }
         public required string Message { get; set; }

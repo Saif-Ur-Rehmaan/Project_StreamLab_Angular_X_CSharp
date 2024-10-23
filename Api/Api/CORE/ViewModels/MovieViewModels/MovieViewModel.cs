@@ -12,10 +12,10 @@ namespace Api.CORE.ViewModels.MovieViewModels
         public required MovieCategoryViewModel MovieCategory { get; set; }
         [Required]
         public required string Title { get; set; }
-        [Required, DataType(DataType.Text)]
-        public required string Thumbnail { get; set; }
-        [Required, DataType(DataType.Text)]
-        public required string MoviePath { get; set; }
+        //[Required]
+        //public required IFormFile ThumbnailFile { get; set; }
+        //[Required]
+        //public required IFormFile MovieFile { get; set; }
 
         [Required, MaxLength(100)]
         public required string Language { get; set; }
@@ -33,7 +33,7 @@ namespace Api.CORE.ViewModels.MovieViewModels
         [AllowNull]
         public int Views { get; set; }
         [Required]
-        public required TimeOnly RunTime { get; set; }
+        public required DateTime RunTime { get; set; }
         [Required]
         public DateTime ReleaseDate { get; set; }
     }

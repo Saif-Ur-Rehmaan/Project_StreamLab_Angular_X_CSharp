@@ -1,5 +1,5 @@
 ﻿using Api.CORE.Models;
-using Api.CORE.ResponceModels;
+using Api.CORE.ResponseModels;
 using Api.CORE.ViewModels;
 using Api.REPOSITORY.Interfaces;
 using Microsoft.AspNetCore.Mvc;
@@ -19,7 +19,7 @@ namespace Api.Controllers
         public IActionResult Get()
         {
             var roles = _roleRepo.GetRoles();
-            return Ok(new ApiResponce { Status = "success", Message = "Roles Retreaved Successfully", Data = roles });
+            return Ok(new ApiResponse { Status = "success", Message = "Roles Retreaved Successfully", Data = roles });
 
         }
 
@@ -32,7 +32,7 @@ namespace Api.Controllers
             {
                 return NotFound($"Role of Id {id} Doesn't Exist");
             }
-            return Ok(new ApiResponce { Status = "success", Message = "Role Retreaved Successfully", Data = role});
+            return Ok(new ApiResponse { Status = "success", Message = "Role Retreaved Successfully", Data = role});
 
         }
 
@@ -53,7 +53,7 @@ namespace Api.Controllers
              
             Role res= _roleRepo.CreateRole(new Role() { Name = role.Name });
 
-            return CreatedAtAction(nameof(Get), new { id = res.Id }, new ApiResponce
+            return CreatedAtAction(nameof(Get), new { id = res.Id }, new ApiResponse
             {
                 Status = "success",
                 Message = "Role created successfully",
@@ -79,7 +79,7 @@ namespace Api.Controllers
             //updating role
             r.Name=role.Name ;
             Role newRole = _roleRepo.UpdateRole(r);
-            return Ok(new ApiResponce { Status = "success", Message = "Role Updated Successfully", Data = newRole});
+            return Ok(new ApiResponse { Status = "success", Message = "Role Updated Successfully", Data = newRole});
 
         }
 
@@ -93,7 +93,7 @@ namespace Api.Controllers
             //Deleting Role
             var res=_roleRepo.DeleteRole(role);
 
-            return Ok(new ApiResponce { Status = "success", Message = "Role Deleted Successfully", Data = res});
+            return Ok(new ApiResponse { Status = "success", Message = "Role Deleted Successfully", Data = res});
 
         }
     }
